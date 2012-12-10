@@ -26,6 +26,8 @@ class CaesarCipher {
 	) {
 		$alphabetSize = ord('z') - ord('a') + 1;
 		$originalAscii = ord($aLetter);
+		if ($originalAscii < ord('a') || $originalAscii > ord('z'))
+			return $aLetter;
 		$encodedAscii = $originalAscii + $this->offset;
 		$offsetFromA = ($encodedAscii - ord('a')) % $alphabetSize;
 		return chr(ord('a') + $offsetFromA);
