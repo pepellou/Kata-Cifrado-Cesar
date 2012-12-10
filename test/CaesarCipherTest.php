@@ -27,6 +27,8 @@ class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 				array("a", 2, "c"),
 				array("b", 2, "d"),
 				array("a", 3, "d"),
+				array("abc", 3, "def"),
+				array("xyz", 3, "abc"),
 			)
 		);
 	}
