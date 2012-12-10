@@ -7,10 +7,17 @@ class CaesarCipher {
 	public function encode(
 		$aString
 	) {
+		return $this->cipher($aString, $this->offset);
+	}
+
+	private function cipher(
+		$aString,
+		$offset
+	) {
 		$aString = strtolower($aString);
 		$encoded = "";
 		for ($l = 0; $l < strlen($aString); $l++) {
-			$encoded .= $this->encodeLetter($aString[$l], $this->offset);
+			$encoded .= $this->encodeLetter($aString[$l], $offset);
 		}
 		return $encoded;
 	}
@@ -31,8 +38,7 @@ class CaesarCipher {
 	public function decode(
 		$aString
 	) {
-		$this->offset *= -1;
-		return $this->encode($aString);
+		return $this->cipher($aString, -$this->offset);
 	}
 
 }
