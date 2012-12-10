@@ -41,8 +41,8 @@ class CaesarCipher {
 	private function isAlphabeticLetter(
 		$aLetter
 	) {
-		$originalAscii = ord($aLetter);
-		return ($originalAscii >= ord('a') && $originalAscii <= ord('z'));
+		$ascii = ord($aLetter);
+		return ($ascii >= ord('a') && $ascii <= ord('z'));
 	}
 
 	private function cipherAlphabeticLetter(
