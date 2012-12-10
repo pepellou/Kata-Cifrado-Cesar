@@ -26,6 +26,15 @@ class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 		);
 	}
 
+	public function test_encode_letter_with_offset_2(
+	) {
+		$cipher = new CaesarCipher(2);
+		$this->assertEquals(
+			"c",
+			$cipher->encode("a")
+		);
+	}
+
 	public function xtest_acceptance(
 	) {
 		$cipher = new CaesarCipher(3);
