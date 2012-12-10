@@ -2,13 +2,7 @@
 
 class CaesarCipher {
 
-	private $offset;
-
-	public function __construct(
-		$offset = 1
-	) {
-		$this->offset = $offset;
-	}
+	public $offset;
 
 	public function encode(
 		$aString
