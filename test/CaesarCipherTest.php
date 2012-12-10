@@ -67,15 +67,35 @@ class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 		);
 	}
 
+	/**
+	* @dataProvider known_ciphered_texts
+	*/
 	public function test_acceptance(
+		$originalText,
+		$cipheredText
 	) {
 		$this->testee->offset = 3;
-		$originalText = "Todo lo que se preguntaba eran las mismas respuestas que buscamos el resto de nosotros. ¿De dónde vengo? ¿A dónde voy? ¿Cuánto tiempo tengo? Todo lo que pude hacer fue sentarme y ver como moría.";
-		$cipheredText = "wrgr or txh vh suhjxqwded hudq odv plvpdv uhvsxhvwdv txh exvfdprv ho uhvwr gh qrvrwurv. ¿gh góqgh yhqjr? ¿d góqgh yrb? ¿fxáqwr wlhpsr whqjr? wrgr or txh sxgh kdfhu ixh vhqwduph b yhu frpr pruíd.";
 
 		$this->assertEquals(
 			$cipheredText,
 			$this->testee->encode($originalText)
+		);
+	}
+
+	public static function known_ciphered_texts(
+	) {
+		return array(
+			array(
+				"Todo lo que se preguntaba eran las mismas respuestas "
+				."que buscamos el resto de nosotros. ¿De dónde vengo? "
+				."¿A dónde voy? ¿Cuánto tiempo tengo? Todo lo que pude "
+				."hacer fue sentarme y ver como moría.",
+
+				"wrgr or txh vh suhjxqwded hudq odv plvpdv uhvsxhvwdv "
+				."txh exvfdprv ho uhvwr gh qrvrwurv. ¿gh góqgh yhqjr? "
+				."¿d góqgh yrb? ¿fxáqwr wlhpsr whqjr? wrgr or txh sxgh "
+				."kdfhu ixh vhqwduph b yhu frpr pruíd."
+			)
 		);
 	}
 
