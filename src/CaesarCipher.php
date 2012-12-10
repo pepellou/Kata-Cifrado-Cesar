@@ -18,10 +18,10 @@ class CaesarCipher {
 	private function encodeLetter(
 		$aLetter
 	) {
-		$alphabetSize = ord('z') - ord('a') + 1;
 		$originalAscii = ord($aLetter);
 		if ($originalAscii < ord('a') || $originalAscii > ord('z'))
 			return $aLetter;
+		$alphabetSize = ord('z') - ord('a') + 1;
 		$encodedAscii = $originalAscii + $this->offset;
 		$offsetFromA = ($encodedAscii - ord('a')) % $alphabetSize;
 		return chr(ord('a') + $offsetFromA);
