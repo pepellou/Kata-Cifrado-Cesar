@@ -14,7 +14,13 @@ class CaesarCipher {
 		$aString,
 		$offset
 	) {
-		$aString = strtolower($aString);
+		return $this->cipherString(strtolower($aString), $offset);
+	}
+
+	private function cipherString(
+		$aString,
+		$offset
+	) {
 		$encoded = "";
 		for ($l = 0; $l < strlen($aString); $l++) {
 			$encoded .= $this->encodeLetter($aString[$l], $offset);
