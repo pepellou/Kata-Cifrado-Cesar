@@ -21,11 +21,11 @@ class CaesarCipher {
 		$aString,
 		$offset
 	) {
-		$encoded = "";
+		$ciphered = "";
 		for ($l = 0; $l < strlen($aString); $l++) {
-			$encoded .= $this->encodeLetter($aString[$l], $offset);
+			$ciphered .= $this->encodeLetter($aString[$l], $offset);
 		}
-		return $encoded;
+		return $ciphered;
 	}
 
 	private function encodeLetter(
