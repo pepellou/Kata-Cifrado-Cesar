@@ -13,6 +13,7 @@ class CaesarCipher {
 	public function encode(
 		$aString
 	) {
+		$aString = strtolower($aString);
 		$encoded = "";
 		for ($l = 0; $l < strlen($aString); $l++) {
 			$encoded .= $this->encodeLetter($aString[$l]);
