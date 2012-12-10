@@ -67,7 +67,7 @@ class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 		);
 	}
 
-	public function xtest_acceptance(
+	public function test_acceptance(
 	) {
 		$this->testee->offset = 3;
 		$this->assertEquals(
