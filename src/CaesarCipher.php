@@ -10,19 +10,20 @@ class CaesarCipher {
 		$aString = strtolower($aString);
 		$encoded = "";
 		for ($l = 0; $l < strlen($aString); $l++) {
-			$encoded .= $this->encodeLetter($aString[$l]);
+			$encoded .= $this->encodeLetter($aString[$l], $this->offset);
 		}
 		return $encoded;
 	}
 
 	private function encodeLetter(
-		$aLetter
+		$aLetter,
+		$offset
 	) {
 		$originalAscii = ord($aLetter);
 		if ($originalAscii < ord('a') || $originalAscii > ord('z'))
 			return $aLetter;
 		$alphabetSize = ord('z') - ord('a') + 1;
-		$encodedAscii = $originalAscii + $this->offset;
+		$encodedAscii = $originalAscii + $offset;
 		$offsetFromA = ($alphabetSize + $encodedAscii - ord('a')) % $alphabetSize;
 		return chr(ord('a') + $offsetFromA);
 	}
