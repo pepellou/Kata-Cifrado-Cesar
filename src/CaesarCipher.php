@@ -27,4 +27,11 @@ class CaesarCipher {
 		return chr(ord('a') + $offsetFromA);
 	}
 
+	public function decode(
+		$aString
+	) {
+		$this->offset *= -1;
+		return $this->encode($aString);
+	}
+
 }
