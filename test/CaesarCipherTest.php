@@ -4,21 +4,25 @@ require_once (dirname(__FILE__)."/../src/CaesarCipher.php");
 
 class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 
-	public function test_encode_a(
+	/**
+	* @dataProvider known_letters_ciphered
+	*/
+	public function test_encode_letter(
+		$letter,
+		$ciphered
 	) {
 		$cipher = new CaesarCipher();
 		$this->assertEquals(
-			"b",
-			$cipher->encode("a")
+			$ciphered,
+			$cipher->encode($letter)
 		);
 	}
 
-	public function test_encode_b(
+	public static function known_letters_ciphered(
 	) {
-		$cipher = new CaesarCipher();
-		$this->assertEquals(
-			"c",
-			$cipher->encode("b")
+		return array(
+			array("a", "b"),
+			array("b", "c"),
 		);
 	}
 
