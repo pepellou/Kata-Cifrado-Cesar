@@ -23,12 +23,12 @@ class CaesarCipher {
 	) {
 		$ciphered = "";
 		for ($l = 0; $l < strlen($aString); $l++) {
-			$ciphered .= $this->encodeLetter($aString[$l], $offset);
+			$ciphered .= $this->cipherLetter($aString[$l], $offset);
 		}
 		return $ciphered;
 	}
 
-	private function encodeLetter(
+	private function cipherLetter(
 		$aLetter,
 		$offset
 	) {
