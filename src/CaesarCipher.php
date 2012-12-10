@@ -11,6 +11,16 @@ class CaesarCipher {
 	}
 
 	public function encode(
+		$aString
+	) {
+		$encoded = "";
+		for ($l = 0; $l < strlen($aString); $l++) {
+			$encoded .= $this->encodeLetter($aString[$l]);
+		}
+		return $encoded;
+	}
+
+	private function encodeLetter(
 		$aLetter
 	) {
 		$alphabetSize = ord('z') - ord('a') + 1;
