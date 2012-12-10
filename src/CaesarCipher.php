@@ -13,7 +13,7 @@ class CaesarCipher {
 	public function encode(
 		$aLetter
 	) {
-		return chr(97 + (ord($aLetter) + $this->offset - 97) % 26);
+		return chr(ord('a') + (ord($aLetter) + $this->offset - ord('a')) % (ord('z') - ord('a') + 1));
 	}
 
 }
