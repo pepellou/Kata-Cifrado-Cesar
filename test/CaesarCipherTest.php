@@ -70,7 +70,7 @@ class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 	/**
 	* @dataProvider known_ciphered_texts
 	*/
-	public function test_acceptance(
+	public function test_acceptance_encode(
 		$originalText,
 		$cipheredText
 	) {
@@ -96,6 +96,21 @@ class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 				."¿d góqgh yrb? ¿fxáqwr wlhpsr whqjr? wrgr or txh sxgh "
 				."kdfhu ixh vhqwduph b yhu frpr pruíd."
 			)
+		);
+	}
+
+	/**
+	* @dataProvider known_ciphered_texts
+	*/
+	public function test_acceptance_decode(
+		$originalText,
+		$cipheredText
+	) {
+		$this->testee->offset = 3;
+
+		$this->assertEquals(
+			strtolower($originalText),
+			$this->testee->decode($cipheredText)
 		);
 	}
 
