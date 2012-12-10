@@ -32,10 +32,17 @@ class CaesarCipher {
 		$aLetter,
 		$offset
 	) {
-		$originalAscii = ord($aLetter);
-		if ($originalAscii < ord('a') || $originalAscii > ord('z'))
+		if (!$this->isAlphabeticLetter($aLetter)) {
 			return $aLetter;
+		}
 		return $this->cipherAlphabeticLetter($aLetter, $offset);
+	}
+
+	private function isAlphabeticLetter(
+		$aLetter
+	) {
+		$originalAscii = ord($aLetter);
+		return ($originalAscii >= ord('a') && $originalAscii <= ord('z'));
 	}
 
 	private function cipherAlphabeticLetter(
