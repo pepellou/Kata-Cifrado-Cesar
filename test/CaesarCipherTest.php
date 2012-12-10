@@ -5,24 +5,24 @@ require_once (dirname(__FILE__)."/../src/CaesarCipher.php");
 class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 
 	/**
-	* @dataProvider known_letters_ciphered
+	* @dataProvider known_strings_ciphered
 	*/
-	public function test_encode_letter(
-		$letter,
+	public function test_encode_string(
+		$string,
 		$offset,
 		$ciphered
 	) {
 		$cipher = new CaesarCipher($offset);
 		$this->assertEquals(
 			$ciphered,
-			$cipher->encode($letter)
+			$cipher->encode($string)
 		);
 	}
 
-	public static function known_letters_ciphered(
+	public static function known_strings_ciphered(
 	) {
 		return array_merge(
-			self::known_letters_ciphered_with_offset_1(),
+			self::known_strings_ciphered_with_offset_1(),
 			array(
 				array("a", 2, "c"),
 				array("b", 2, "d"),
@@ -32,35 +32,27 @@ class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 	}
 
 	/**
-	* @dataProvider known_letters_ciphered_with_offset_1
+	* @dataProvider known_strings_ciphered_with_offset_1
 	*/
 	public function test_default_offset(
-		$letter,
+		$string,
 		$offset,
 		$ciphered
 	) {
 		$cipher = new CaesarCipher();
 		$this->assertEquals(
 			$ciphered,
-			$cipher->encode($letter)
+			$cipher->encode($string)
 		);
 	}
 
-	public static function known_letters_ciphered_with_offset_1(
+	public static function known_strings_ciphered_with_offset_1(
 	) {
 		return array(
 			array("a", 1, "b"),
 			array("b", 1, "c"),
 			array("z", 1, "a"),
-		);
-	}
-
-	public function test_can_cipher_strings(
-	) {
-		$cipher = new CaesarCipher();
-		$this->assertEquals(
-			"bcd",
-			$cipher->encode("abc")
+			array("abc", 1, "bcd"),
 		);
 	}
 
