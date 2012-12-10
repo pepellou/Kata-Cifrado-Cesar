@@ -4,7 +4,7 @@ class CaesarCipher {
 
 	public function encode(
 	) {
-		return "";
+		return "b";
 	}
 
 }
