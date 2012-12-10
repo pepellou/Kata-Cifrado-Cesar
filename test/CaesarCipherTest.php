@@ -117,7 +117,7 @@ class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 	/**
 	* @dataProvider known_ciphered_texts
 	*/
-	public function xtest_acceptance_decode(
+	public function test_acceptance_decode(
 		$originalText,
 		$cipheredText
 	) {
