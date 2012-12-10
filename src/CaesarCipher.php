@@ -3,8 +3,9 @@
 class CaesarCipher {
 
 	public function encode(
+		$aLetter
 	) {
-		return "b";
+		return chr(ord($aLetter) + 1);
 	}
 
 }
