@@ -21,28 +21,35 @@ class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 
 	public static function known_letters_ciphered(
 	) {
-		return array(
-			array("a", 1, "b"),
-			array("b", 1, "c"),
-			array("a", 2, "c"),
+		return array_merge(
+			self::known_letters_ciphered_with_offset_1(),
+			array(
+				array("a", 2, "c"),
+			)
 		);
 	}
 
 	/**
-	* @dataProvider known_letters_ciphered
+	* @dataProvider known_letters_ciphered_with_offset_1
 	*/
 	public function test_default_offset(
 		$letter,
 		$offset,
 		$ciphered
 	) {
-		if ($offset == 1) {
-			$cipher = new CaesarCipher();
-			$this->assertEquals(
-				$ciphered,
-				$cipher->encode($letter)
-			);
-		}
+		$cipher = new CaesarCipher();
+		$this->assertEquals(
+			$ciphered,
+			$cipher->encode($letter)
+		);
+	}
+
+	public static function known_letters_ciphered_with_offset_1(
+	) {
+		return array(
+			array("a", 1, "b"),
+			array("b", 1, "c"),
+		);
 	}
 
 	public function xtest_acceptance(
