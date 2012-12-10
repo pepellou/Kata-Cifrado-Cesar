@@ -35,6 +35,14 @@ class CaesarCipher {
 		$originalAscii = ord($aLetter);
 		if ($originalAscii < ord('a') || $originalAscii > ord('z'))
 			return $aLetter;
+		return $this->cipherAlphabeticLetter($aLetter, $offset);
+	}
+
+	private function cipherAlphabeticLetter(
+		$aLetter,
+		$offset
+	) {
+		$originalAscii = ord($aLetter);
 		$alphabetSize = ord('z') - ord('a') + 1;
 		$encodedAscii = $originalAscii + $offset;
 		$offsetFromA = ($alphabetSize + $encodedAscii - ord('a')) % $alphabetSize;
