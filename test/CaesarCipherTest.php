@@ -9,9 +9,10 @@ class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 	*/
 	public function test_encode_letter(
 		$letter,
+		$offset,
 		$ciphered
 	) {
-		$cipher = new CaesarCipher();
+		$cipher = new CaesarCipher($offset);
 		$this->assertEquals(
 			$ciphered,
 			$cipher->encode($letter)
@@ -21,18 +22,27 @@ class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 	public static function known_letters_ciphered(
 	) {
 		return array(
-			array("a", "b"),
-			array("b", "c"),
+			array("a", 1, "b"),
+			array("b", 1, "c"),
+			array("a", 2, "c"),
 		);
 	}
 
-	public function test_encode_letter_with_offset_2(
+	/**
+	* @dataProvider known_letters_ciphered
+	*/
+	public function test_default_offset(
+		$letter,
+		$offset,
+		$ciphered
 	) {
-		$cipher = new CaesarCipher(2);
-		$this->assertEquals(
-			"c",
-			$cipher->encode("a")
-		);
+		if ($offset == 1) {
+			$cipher = new CaesarCipher();
+			$this->assertEquals(
+				$ciphered,
+				$cipher->encode($letter)
+			);
+		}
 	}
 
 	public function xtest_acceptance(
