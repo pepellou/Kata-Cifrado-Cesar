@@ -25,6 +25,8 @@ class CaesarCipherTest extends PHPUnit_Framework_TestCase {
 			self::known_letters_ciphered_with_offset_1(),
 			array(
 				array("a", 2, "c"),
+				array("b", 2, "d"),
+				array("a", 3, "d"),
 			)
 		);
 	}
