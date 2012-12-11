@@ -5,10 +5,13 @@ class CaesarCipher {
 	public $offset;
 	public $direction;
 
+	private static $ENCODE_DIRECTION = 1;
+	private static $DECODE_DIRECTION = -1;
+
 	public function encode(
 		$aString
 	) {
-		return $this->cipher($aString, 1);
+		return $this->cipher($aString, self::$ENCODE_DIRECTION);
 	}
 
 	private function cipher(
@@ -58,7 +61,7 @@ class CaesarCipher {
 	public function decode(
 		$aString
 	) {
-		return $this->cipher($aString, -1);
+		return $this->cipher($aString, self::$DECODE_DIRECTION);
 	}
 
 }
