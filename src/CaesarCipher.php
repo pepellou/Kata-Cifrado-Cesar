@@ -11,14 +11,13 @@ class CaesarCipher {
 	public function encode(
 		$aString
 	) {
-		return $this->cipher($aString, self::$ENCODE_DIRECTION);
+		$this->direction = self::$ENCODE_DIRECTION;
+		return $this->cipher($aString);
 	}
 
 	private function cipher(
-		$aString,
-		$direction
+		$aString
 	) {
-		$this->direction = $direction;
 		return $this->cipherString(strtolower($aString));
 	}
 
@@ -61,7 +60,8 @@ class CaesarCipher {
 	public function decode(
 		$aString
 	) {
-		return $this->cipher($aString, self::$DECODE_DIRECTION);
+		$this->direction = self::$DECODE_DIRECTION;
+		return $this->cipher($aString);
 	}
 
 }
